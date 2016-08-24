@@ -27,7 +27,7 @@ public class Exec {
               try {
                 try {
                   if (p.waitFor() != 0)
-                    throw new IOException(p.exitValue() + CharStreams.toString(new InputStreamReader(in)));
+                    throw new IOException(p.exitValue() + CharStreams.toString(new InputStreamReader(in))); //###TODO just use Files.toString?!?
                 } catch (InterruptedException ie) {
                   throw new IOException(ie);
                 } finally {
