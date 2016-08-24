@@ -20,6 +20,7 @@ public class Exec {
       public InputStream openStream() throws IOException {
         final File tmpFile = File.createTempFile("tmp", ".tmp");
         try {
+          //###TODO redirectOutput vs redirectError wrt fd
           final Process p = new ProcessBuilder(args).redirectError(tmpFile).start();
           return new FilterInputStream(fd == 1 ? p.getInputStream() : p.getErrorStream()) {
             final InputStream in = new FileInputStream(tmpFile);
